@@ -7,6 +7,7 @@
   // The "*" signifies that the version should be taken from the package.json
   "version": "*",
   "manifestVersion": 2,
+  "supportsFullBleed": true,
 
   // If true, the component can only be installed on sites where Custom Script is allowed.
   // Components that allow authors to embed arbitrary script code should set this to true.
@@ -15,13 +16,12 @@
   "supportedHosts": ["SharePointWebPart"],
 
   "preconfiguredEntries": [{
-    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
-    "group": { "default": "Other" },
+    "groupId": "5c03119e-3074-46fd-976b-c60198317f70", // Other
+    "group": { "default": "SharePoint Widgets" },
     "title": { "default": "Tab" },
     "description": { "default": "Tab webpart" },
-    "officeFabricIconFontName": "Page",
+    "officeFabricIconFontName": "Tab",
     "properties": {
-      "description": "Tab"
     }
   }]
 }
