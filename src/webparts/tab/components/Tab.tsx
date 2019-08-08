@@ -8,6 +8,7 @@ import { IconButton } from 'office-ui-fabric-react/lib/Button';
 import RichTextEditor, { EditorValue } from 'react-rte';
 import { TabConstants } from '../../../common/TabConstants';
 import TabHelper from '../../../common/TabHelper';
+import { SPLogger } from 'spfxhelper';
 
 export default class Tab extends React.Component<ITabProps, ITabState> {
 
@@ -17,7 +18,7 @@ export default class Tab extends React.Component<ITabProps, ITabState> {
     let isConfigured: boolean = this.props.tabProps.tabs.length > 0;
 
     this.state = {
-      currentContent: isConfigured ? RichTextEditor.createValueFromString(this.props.tabProps.tabs[0].content, 'html') : RichTextEditor.createValueFromString(TabConstants.NO_TAB_ADDED, 'html'),
+      currentContent: isConfigured ? RichTextEditor.createValueFromString(this.props.tabProps.tabs[0].content, 'html') : RichTextEditor.createValueFromString(this.props.isEditMode ? TabConstants.NO_TAB_ADDED_EDIT_MODE : TabConstants.NO_TAB_ADDED_VIEW_MODE, 'html'),
       selectedTab: isConfigured ? this.props.tabProps.tabs[0].guid : TabConstants.ADD_TAB_GUID,
       currentTitle: isConfigured ? this.props.tabProps.tabs[0].title : undefined,
       updateRequired: false
@@ -131,13 +132,13 @@ export default class Tab extends React.Component<ITabProps, ITabState> {
   }
 
   public componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
-    alert('error');
+    SPLogger.logError(error, this.props.serviceScope);
   }
 
   /**
    * On change event for the RichTextBox
    */
-  onChange = (value: EditorValue) => {
+  private onChange = (value: EditorValue) => {
 
     // Update the state and props
     let prop = this.props;
@@ -164,7 +165,7 @@ export default class Tab extends React.Component<ITabProps, ITabState> {
     set(this.props.tabProps, "tabs", tabArray);
     this.setState({
       updateRequired: true,
-      currentContent: tabArray.length > 0 ? RichTextEditor.createValueFromString(tabArray[0].content, 'html') : RichTextEditor.createValueFromString(TabConstants.NO_TAB_ADDED, 'html'),
+      currentContent: tabArray.length > 0 ? RichTextEditor.createValueFromString(tabArray[0].content, 'html') : RichTextEditor.createValueFromString(this.props.isEditMode ? TabConstants.NO_TAB_ADDED_EDIT_MODE : TabConstants.NO_TAB_ADDED_VIEW_MODE, 'html'),
       currentTitle: tabArray.length > 0 ? tabArray[0].title : 'Tab 0',
       selectedTab: tabArray.length > 0 ? tabArray[0].guid : TabConstants.ADD_TAB_GUID
     });
@@ -173,5 +174,4 @@ export default class Tab extends React.Component<ITabProps, ITabState> {
   public shouldComponentUpdate(nextProps: ITabProps, nextState: ITabState, context: any): boolean {
     return nextState.updateRequired;
   }
-
 }
