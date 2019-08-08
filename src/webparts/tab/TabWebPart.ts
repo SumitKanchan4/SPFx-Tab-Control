@@ -3,14 +3,13 @@ import * as ReactDom from 'react-dom';
 import { Version, DisplayMode } from '@microsoft/sp-core-library';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { IPropertyPaneConfiguration } from '@microsoft/sp-property-pane';
-
-import * as strings from 'TabWebPartStrings';
 import Tab from './components/Tab';
 import { ITabProps, ITabInternalProps } from './components/ITabProps';
 import { set } from 'lodash';
 
 export interface ITabWebPartProps {
   tabs: ITabInternalProps[];
+
 }
 
 export default class TabWebPart extends BaseClientSideWebPart<ITabWebPartProps> {
@@ -25,7 +24,8 @@ export default class TabWebPart extends BaseClientSideWebPart<ITabWebPartProps> 
       Tab,
       {
         tabProps: this.properties,
-        isEditMode: this.displayMode == DisplayMode.Edit
+        isEditMode: this.displayMode == DisplayMode.Edit,
+        serviceScope: this.context.serviceScope
       }
     );
 
@@ -45,14 +45,9 @@ export default class TabWebPart extends BaseClientSideWebPart<ITabWebPartProps> 
       pages: [
         {
           header: {
-            description: strings.PropertyPaneDescription
+            description: `No configuration required for the webpart`
           },
-          groups: [
-            {
-              groupName: strings.BasicGroupName,
-              groupFields: []
-            }
-          ]
+          groups: []
         }
       ]
     };
