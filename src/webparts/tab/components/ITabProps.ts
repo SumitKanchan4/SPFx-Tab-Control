@@ -1,9 +1,11 @@
 import { ITabWebPartProps } from "../TabWebPart";
 import { EditorValue } from 'react-rte';
+import { ServiceScope } from "@microsoft/sp-core-library";
 
 export interface ITabProps {
   tabProps: ITabWebPartProps;
   isEditMode: boolean;
+  serviceScope: ServiceScope;
 }
 
 export interface ITabInternalProps {
