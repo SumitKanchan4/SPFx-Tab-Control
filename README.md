@@ -1,26 +1,43 @@
-## tab
+# SPFx Tab Control
 
-This is where you include your WebPart documentation.
+[![SharePointWidgets.com](/Images/sharePointWidgetsBanner.png?raw=true)](https://www.sharepointwidgets.com)
 
-### Building the code
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/SumitKanchan4/SPFx-Tab-Control)
 
-```bash
-git clone the repo
-npm i
-npm i -g gulp
-gulp
+This is a SPFx Tab control webpart, having the rich text editor cotrol attached to each tab.
+
+# Features!
+
+  - No configuration for the webpart to use
+  - Safe and fast as there is no external saving of data
+  - Rich Text editor increases lot of possibilities how you use it
+  - Light weight control
+ 
+### Edit Mode
+
+[![SPFx Tab Control](/Images/SPFxTab-EditMode.png?raw=true)](https://www.sharepointwidgets.com)
+
+### View Mode
+
+[![SPFx Tab Control](/Images/SPFxTab-ViewMode.png?raw=true)](https://www.sharepointwidgets.com)
+
+### Installation
+
+Clone the repository and perform the commands as mentioned below.
+
+```sh
+$ npm install
+$ gulp clean
+$ gulp bundle --ship
+$ gulp package-solution --ship
 ```
 
-This package produces the following:
+### Todos
 
-* lib/* - intermediate-stage commonjs build artifacts
-* dist/* - the bundled script, along with other resources
-* deploy/* - all resources which should be uploaded to a CDN.
+ - Responsiveness of the tabs
 
-### Build options
+License
+----
 
-gulp clean - TODO
-gulp test - TODO
-gulp serve - TODO
-gulp bundle - TODO
-gulp package-solution - TODO
+MIT
+
