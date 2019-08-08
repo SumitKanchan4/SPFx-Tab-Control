@@ -15,11 +15,11 @@ This is a SPFx Tab control webpart, having the rich text editor cotrol attached 
  
 ### Edit Mode
 
-[![SPFx Tab Control](/Images/SPFxTab-EditMode.png?raw=true)](https://www.sharepointwidgets.com)
+![SPFx Tab Control Edit Mode](/Images/SPFxTab-EditMode.png?raw=true)
 
 ### View Mode
 
-[![SPFx Tab Control](/Images/SPFxTab-ViewMode.png?raw=true)](https://www.sharepointwidgets.com)
+![SPFx Tab Control](/Images/SPFxTab-ViewMode.png?raw=true)
 
 ### Installation
 
