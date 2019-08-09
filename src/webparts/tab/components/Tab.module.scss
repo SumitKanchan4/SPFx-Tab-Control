@@ -29,6 +29,9 @@
     @include ms-sm12;
     display: flex;
     align-items: center;
+    [role='tablist']{
+      white-space: inherit;
+    }
   }
   .showScreen{
     @include ms-sm12;
