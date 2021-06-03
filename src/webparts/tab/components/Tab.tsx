@@ -8,7 +8,7 @@ import { IconButton } from 'office-ui-fabric-react/lib/Button';
 import RichTextEditor, { EditorValue } from 'react-rte';
 import { TabConstants } from '../../../common/TabConstants';
 import TabHelper from '../../../common/TabHelper';
-import { SPLogger } from 'spfxhelper';
+import { Log } from '@microsoft/sp-core-library';
 
 export default class Tab extends React.Component<ITabProps, ITabState> {
 
@@ -132,7 +132,7 @@ export default class Tab extends React.Component<ITabProps, ITabState> {
   }
 
   public componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
-    SPLogger.logError(error, this.props.serviceScope);
+    Log.error(error.name, error, this.props.serviceScope);
   }
 
   /**
