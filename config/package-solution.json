@@ -3,7 +3,7 @@
   "solution": {
     "name": "spfx-Tab-Control",
     "id": "eb5bec62-c755-496b-80d9-02430b8a4b0c",
-    "version": "1.0.0.0",
+    "version": "1.1.0.0",
     "includeClientSideAssets": true,
     "isDomainIsolated": false
   },
